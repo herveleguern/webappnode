@@ -1,0 +1,23 @@
+version modifiee pour etre executée localement
+
+**config.js simplifié
+//pour id de connexion MySQL en dur
+//se connecter en local avec nodeapp/student12
+
+**package.json  : "start": "node index.js"
+//suppression des references aux env vars
+
+**base de données
+mysql -u root -e "CREATE USER 'nodeapp' IDENTIFIED WITH mysql_native_password BY 'student12'";
+mysql -u root -e "GRANT all privileges on *.* to 'nodeapp'@'%';"
+mysql -u root -e "CREATE DATABASE STUDENTS;"
+mysql -u root -e "USE STUDENTS; CREATE TABLE students(
+            id INT NOT NULL AUTO_INCREMENT,
+            name VARCHAR(255) NOT NULL,
+            address VARCHAR(255) NOT NULL,
+            city VARCHAR(255) NOT NULL,
+            state VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL,
+            phone VARCHAR(100) NOT NULL,
+            PRIMARY KEY ( id ));"
+
